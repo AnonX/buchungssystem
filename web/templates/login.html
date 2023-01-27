@@ -1,0 +1,16 @@
+<!-- überschreibt base.html -->
+{% extends "base.html"%}
+{%block content%}
+<br />
+<form method="POST"><h3 align="center">Einloggen</h3>
+<div class="form-group">
+    <label for="email">E-Mail Adresse</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="">
+    <br />
+    <label for="password">Passwort</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="">
+</div>
+<br />
+<button type="submit" class="btn btn-primary">Los</button>
+    </form>
+{%endblock%}

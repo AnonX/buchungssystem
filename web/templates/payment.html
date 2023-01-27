@@ -1,0 +1,36 @@
+{% extends "base.html"%}
+{% block title %}payment{% endblock %}
+{%block content%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zahlungsmittel Einfügen</title>
+</head>
+<body>
+<br />
+<form method="POST"><h3 align="center">Zahlungsmittel hinzufügen</h3>
+<div class="form-group">
+    <label for="creditInstitution">Kreditinstitut</label>
+    <input type="text" class="form-control" id="creditInstitution" name="creditInstitution" placeholder="Bankname">
+    <br />
+    <label for="cardType">Kartenart</label>
+    <input type="text" class="form-control" id="cardType" name="cardType" placeholder="MasterCard">
+    <br />
+    <label for="cardholder">Karteninhaber</label>
+    <input type="text" class="form-control" id="cardholder" name="cardholder" placeholder="Max Muster">
+    <br />
+    <label for="valid">Gültig bis</label>
+    <input type="text" class="form-control" id="valid" name="valid" placeholder="01/25">
+     <br />
+    <label for="cardNumber">Kartennummer</label>
+    <input type="text" class="form-control" id="cardNumber" pattern="[0-9\s]{13,19}" maxlength="19" name="cardNumber" placeholder="xxxx xxxx xxxx xxxx">
+</div>
+<br />
+<button type="submit" class="btn btn-primary">Speichern</button>
+    </form>
+
+</body>
+</html>
+{% endblock %}
