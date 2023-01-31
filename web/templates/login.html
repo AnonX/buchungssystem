@@ -1,6 +1,9 @@
 <!-- überschreibt base.html -->
 {% extends "base.html"%}
 {%block content%}
+{%  for messages in get_flashed_messages() %}
+<p> {{ messages }}</p>
+{% endfor %}
 <br />
 <form method="POST"><h3 align="center">Einloggen</h3>
 <div class="form-group">

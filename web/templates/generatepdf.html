@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
 <body>
-$END$
+<h3>Kosten&uuml;bernahme</h3>
+<br>
+<p>Sehr geehrte Damen und Herren,</p>
+<br>
+<p>hiermit best&auml;tigen wir Ihnen, wie telefonisch besprochen, folgende Buchung:</p>
+<br>
+<p>1 Einzelzimmer wie folgt</p>
+{% for booking in Booking%}
+<p>von</p>{{booking}}<br>
+<p>bis</p>{{booking.checkout}}<br>
+<p>Gast</p>{{booking.employee_id}}<br>
+<p>Mobil</p>{{booking.tel_id}}<br>
+
+<p>ohne Fr&uuml;hst&uuml;ck</p><br>
+<p>Preis</p>{{booking.price}}<br>
+
+<p>Die Kosten werden von uns, wie gebucht, &uuml;bernommen. <br>
+    Die Rechnung senden Sie bitte mit Namen des Gastes und dem Vermerk "ohne Fr&uuml;hst&uuml;ck" an folgende E-mail Adresse: email@email.de</p><br>
+
+<h2>Musterfirma GmbH</h2><br>
+<p>Musterstraße 00</p><br>
+<p>00000 Musterstadt</p><br><br><br>
+
+<p>Kreditinstitut</p>{{booking.kreditkarte}}<br>
+<p>Kartenart</p>{{booking.art}}<br>
+<p>Karteninhaber</p>{{booking.cardholder}}<br>
+<p>G&uuml;ltig bis</p>{{booking.valid}}<br>
+<p>Kartennummer</p>{{booking.cardnumber}}<br>
+<p>Desweiteren best&auml;tigen wir Ihnen, dass unser Kollege aus beruflichen Gr&uuml;nden bei Ihnen im genannten zeitraum &uuml;bernachtet</p><br>
+<p>F&uuml;r Fragen stehen wir Ihnen zur Verf&uuml;gung</p><br>
+<p>Mit freundlichen Gr&uuml;ßen</p><br>
+{{booking.User_id}}
+{% endfor %}
 </body>
-</html>

@@ -1,7 +1,10 @@
 <!-- überschreibt base.html -->
 {% extends "base.html"%}
-{% block title %}SignUp{%endblock %}
+{% block title %}Registrieren{% endblock %}
 {%block content%}
+{%  for messages in get_flashed_messages() %}
+<p> {{ messages }}</p>
+{% endfor %}
 <br />
 <form method="POST"><h3 align="center">Registrieren</h3>
 <div class="form-group">
@@ -15,6 +18,6 @@
     <input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm" placeholder="">
 </div>
 <br />
-<button type="submit" class="btn btn-primary">speichern</button>
+<button type="submit" class="btn btn-primary">Speichern</button>
     </form>
-{%endblock%}
+{% endblock %}

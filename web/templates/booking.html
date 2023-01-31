@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
+<!-- überschreibt base.html -->
+{% extends "base.html"%}
+{% block title %}Booking{% endblock %}
+{%block content%}
+{%  for messages in get_flashed_messages() %}
+<p> {{ messages }}</p>
+{% endfor %}
 <body>
-$END$
+<br />
+<div method="POST"><h3 align="center">Mitarbeiter hinzuf&uuml;gen</h3>
+<form class="teamSelection" method="POST" action="/submitted">
+   <select class="teamForm" id="teamDropdownSelector" type="text" name="teamDropdown" placeholder="Mitarbeiter">
+        <option disabled selected>Mitarbeiter aussuchen</option>
+        <option id="Max Muster" value="">Max Muster</option>
+   </select>
+   <input class="btn" type="submit" value="auswählen">
+</form>
+    <br />
+    <h3 align="center">Hotel hinzuf&uuml;gen</h3>
+       <select class="hotelForm" id="hotelDropdownSelector" type="text" name="hotel" placeholder="hotel">
+        <option disabled selected>Hotel aussuchen</option>
+        <option id="Muster Hotel" value="">Muster Hotel</option>
+   </select>
+    <input class="btn" type="submit" value="ausw&auml;hlen">
+    </form>
+</div>
+<div>
+    <form method="POST"><h3 align="center">Neue Buchung erfassen</h3>
+<div class="form-group">
+    <label for="checkin">CheckIn</label>
+    <input type="date" class="form-control" id="checkin" name="checkin" placeholder="">
+    <br />
+    <label for="checkout">CheckOut</label>
+    <input type="date" class="form-control" id="checkout" name="checkout" placeholder="">
+    <br />
+    <label for="price">Preis</label>
+    <input type="text" class="form-control" id="price" name="price" placeholder="100,00">
+    <br />
+    <label for="art">Buchungsart</label>
+    <input type="text" class="form-control" id="art" name="art" placeholder="telefonisch, online...">
+    <br />
+    <label for="bookDate">Buchungsdatum</label>
+    <input type="date" class="form-control" id="bookDate" name="bookDate" placeholder="">
+    <br />
+</div>
+        <button type="submit" class="btn btn-primary">Speichern</button>
+    </form>
+</div>
 </body>
-</html>
+{%endblock%}

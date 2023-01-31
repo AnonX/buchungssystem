@@ -1,0 +1,36 @@
+{% extends "base.html"%}
+{%block content%}
+<body>
+<br>
+<h3><p class="text-lg-center">Kreditkarten</p></h3>
+<div class="container">
+   <div class="table-responsive">
+     <table class="table">
+       <thead>
+       <tr>
+         <th>ID</th>
+         <th>Kreditinstitut</th>
+         <th>Kartenart</th>
+         <th>Karteninhaber</th>
+         <th>Gültig bis</th>
+         <th>Kartennummer</th>
+       </tr>
+       </thead>
+        <tbody>
+        <tr>
+           {% for cc in paymentdata %}
+            <td>{{cc[0]}}</td>
+            <td>{{cc[1]}}</td>
+            <td>{{cc[2]}}</td>
+            <td>{{cc[3]}}</td>
+            <td>{{cc[4]}}</td>
+            <td>{{cc[5]}}</td>
+        </tr>
+        {% endfor %}
+       </tbody>
+     </table>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}

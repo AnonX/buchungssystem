@@ -1,6 +1,6 @@
-# web package importieren
 from web import create_app
-#webserver initialisieren
+
+# Initialize/start WSGI development server
 app = create_app()
 
 if __name__ == '__main__':

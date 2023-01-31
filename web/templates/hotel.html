@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
+<!-- überschreibt base.html -->
+{% extends "base.html"%}
+{% block title %}Hotel hinzuf&uuml;gen{% endblock %}
+{%block content%}
+{%  for messages in get_flashed_messages() %}
+<p> {{ messages }}</p>
+{% endfor %}
 <body>
-$END$
+<br />
+<form method="POST"><h3 align="center">Hotel Registrieren</h3>
+<div class="form-group">
+   <label for="hotelname">Hotelname</label>
+    <input type="text" class="form-control" id="hotelname" name="hotelname">
+    <br />
+   <label for="street">Strasse</label>
+    <input type="text" class="form-control" id="street" name="street">
+    <br />
+    <label for="zip">PLZ</label>
+    <input type="text" class="form-control" id="zip" name="zip">
+    <br />
+    <label for="place">Ort</label>
+    <input type="text" class="form-control" id="place" name="place">
+    <br />
+   <label for="tel">Tel</label>
+    <input type="tel" class="form-control" id="tel" name="tel" placeholder="040123...">
+    <br />
+    <label for="fax">Fax</label>
+    <input type="tel" class="form-control" id="fax" name="fax" placeholder="040123...">
+    <br />
+    <label for="email">E-Mail Adresse</label>
+    <input type="email" class="form-control" id="email" name="email">
+    <br />
+</div>
+<br />
+<button type="submit" class="btn btn-primary">speichern</button>
+    </form>
 </body>
-</html>
+{% endblock %}

@@ -2,5 +2,36 @@
 {% extends "base.html"%}
 {% block title %}home{% endblock %}
 {%block content%}
-<h1>This is the home page</h1>
+
+<br />
+<h3><p class="text-lg-center">Übersicht</p></h3>
+<div class="container">
+   <div class="table-responsive">
+     <table class="table">
+       <thead>
+       <tr>
+         <th>ID</th>
+         <th>Mitarbeiter</th>
+         <th>Hotel</th>
+         <th>Gebucht durch</th>
+         <th>Datum der Buchung</th>
+         <th>Buchungsart</th>
+       </tr>
+       </thead>
+       <tbody>
+        <tr>
+           {% for book in bookingdata %}
+            <td>{{book[0]}}</td>
+            <td>{{book[1]}}</td>
+            <td>{{book[2]}}</td>
+            <td>{{book[3]}}</td>
+            <td>{{book[4]}}</td>
+            <td>{{book[5]}}</td>
+        </tr>
+        {% endfor %}
+       </tbody>
+     </table>
+</div>
+</div>
 {% endblock %}
+
