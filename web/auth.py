@@ -6,7 +6,6 @@ from datetime import datetime
 from . import db
 import pdfkit
 import sqlite3
-import os.path
 
 '''Using Blueprint as architecture approach and security plugin. Includes the templates and static files that will be 
 served on those routes '''
@@ -67,9 +66,6 @@ def signup():
     return render_template("signup.html", user=current_user)
 
 
-
-
-
 @auth.route('/detail')
 @login_required
 def detail():
@@ -106,7 +102,7 @@ def employee():
         new_employee = Employee(empname=empname, fname=fname, tel=tel, emailemp=emailemp)
         db.session.add(new_employee)
         db.session.commit()
-        return 'Mitarbeiter erfolgreich angelegt!'
+        return redirect(url_for('views.home'))
 
     return render_template("employee.html")
 
@@ -125,7 +121,7 @@ def hotel():
         new_hotel = Hotel(hotelname=hotelname, street=street, zip=zip, place=place, tel=tel, fax=fax, email=email)
         db.session.add(new_hotel)
         db.session.commit()
-        return 'Hotel erfolgreich angelegt!'
+        return redirect(url_for('views.home'))
     return render_template("/hotel.html")
 
 
@@ -133,6 +129,8 @@ def hotel():
 @login_required
 def booking():
     if request.method == 'POST':
+        ed = request.form.get('ed')
+        hn = request.form.get('hn')
         checkinn = request.form.get('checkin')
         checkin = datetime.strptime(checkinn, '%Y-%m-%d')
         checkoutt = request.form.get('checkout')
@@ -141,12 +139,32 @@ def booking():
         art = request.form.get('art')
         bDate = request.form.get('bookDate')
         bookDate = datetime.strptime(bDate, '%Y-%m-%d')
-        new_booking = Booking(checkin=checkin, checkout=checkout, price=price, art=art, bookDate=bookDate)
+        new_booking = Booking(ed=ed, hn=hn, checkin=checkin, checkout=checkout, price=price, art=art, bookDate=bookDate)
         db.session.add(new_booking)
         db.session.commit()
-        return 'Buchung erfolgreich angelegt!'
+        return redirect(url_for('views.home'))
     book = Booking.query.all()
-    return render_template("/booking.html", book=book)
+    connect = sqlite3.connect('instance/database.db')
+    cursor = connect.cursor()
+    cursor.execute("SELECT * FROM hotel order by id")
+    hotelnamedata = cursor.fetchall()
+    print(hotelnamedata)
+    cursoremp = connect.cursor()
+    cursoremp.execute("SELECT * FROM employee")
+    employeedata = cursoremp.fetchall()
+    print(employeedata)
+    connect.close()
+    return render_template("/booking.html", book=book, hotelnamedata=hotelnamedata, employeedata=employeedata)
+
+@auth.route('/preview', methods=['GET','POST'])
+@login_required
+def preview():
+    connect = sqlite3.connect('instance/database.db')
+    cursor = connect.cursor()
+    cursor.execute("SELECT * FROM booking")
+    bookingdata = cursor.fetchall()
+    connect.close()
+    return render_template("/preview.html", bookingdata=bookingdata)
 
 
 @auth.route('/generatepdf')
@@ -170,4 +188,6 @@ def cc():
     print("DB Data")
     paymentdata = cursor.fetchall()
     print(paymentdata)
+    connect.close()
     return render_template("cc.html", paymentdata=paymentdata)
+

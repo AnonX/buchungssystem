@@ -13,9 +13,9 @@ class User(db.Model, UserMixin):
 
 class Payment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    institution = db.Column(db.String(150))
-    cardType = db.Column(db.String(150))
-    cardholder = db.Column(db.String(150))
+    institution = db.Column(db.String(50))
+    cardType = db.Column(db.String(50))
+    cardholder = db.Column(db.String(50))
     valid = db.Column(db.String(5))
     cardnumber = db.Column(db.String(16))
 
@@ -42,6 +42,8 @@ class Hotel(db.Model):
 
 class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    ed = db.Column(db.String(150))
+    hn = db.Column(db.String(150))
     checkin = db.Column(db.DateTime)
     checkout = db.Column(db.DateTime)
     price = db.Column(db.String(50))

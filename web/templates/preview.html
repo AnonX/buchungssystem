@@ -8,12 +8,12 @@
 <br>
 <p>1 Einzelzimmer wie folgt</p>
 {% for book in bookingdata %}
-<p>von: {{book[1]}}</p><br>
-<p>bis: {{book[2]}}</p><br>
+<p>von: {{book[3]}}</p><br>
+<p>bis: {{book[4]}}</p><br>
 {% endfor %}
 {% endblock %}
 <p>ohne Fr&uuml;hst&uuml;ck</p><br>
-<p>Preis</p>{{booking.price}}<br>
+<p>Preis</p><br>
 
 <p>Die Kosten werden von uns, wie gebucht, &uuml;bernommen. <br>
     Die Rechnung senden Sie bitte mit Namen des Gastes und dem Vermerk "ohne Fr&uuml;hst&uuml;ck" an folgende E-mail Adresse: email@email.de</p><br>
@@ -22,13 +22,12 @@
 <p>Musterstraße 00</p><br>
 <p>00000 Musterstadt</p><br><br><br>
 
-<p>Kreditinstitut</p>{{booking.kreditkarte}}<br>
-<p>Kartenart</p>{{booking.art}}<br>
-<p>Karteninhaber</p>{{booking.cardholder}}<br>
-<p>G&uuml;ltig bis</p>{{booking.valid}}<br>
-<p>Kartennummer</p>{{booking.cardnumber}}<br>
+<p>Kreditinstitut</p><br>
+<p>Kartenart</p><br>
+<p>Karteninhaber</p><br>
+<p>G&uuml;ltig bis</p><br>
+<p>Kartennummer</p><br>
 <p>Desweiteren best&auml;tigen wir Ihnen, dass unser Kollege aus beruflichen Gr&uuml;nden bei Ihnen im genannten zeitraum &uuml;bernachtet</p><br>
 <p>F&uuml;r Fragen stehen wir Ihnen zur Verf&uuml;gung</p><br>
 <p>Mit freundlichen Gr&uuml;ßen</p><br>
-{{booking.User_id}}
 </body>

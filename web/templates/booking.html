@@ -10,20 +10,24 @@
 <div method="POST"><h3 align="center">Mitarbeiter hinzuf&uuml;gen</h3>
 <form class="teamSelection" method="POST" action="/submitted">
    <select class="teamForm" id="teamDropdownSelector" type="text" name="teamDropdown" placeholder="Mitarbeiter">
-        <option disabled selected>Mitarbeiter aussuchen</option>
-        <option id="Max Muster" value="">Max Muster</option>
+       <option disabled selected>Mitarbeiter aussuchen</option>
+        {% for ed in employeedata %}
+        <option id="ed" value="{{ed}}">{{ed}}</option>
+       {% endfor %}
    </select>
-   <input class="btn" type="submit" value="auswählen">
+    <br>
 </form>
     <br />
     <h3 align="center">Hotel hinzuf&uuml;gen</h3>
        <select class="hotelForm" id="hotelDropdownSelector" type="text" name="hotel" placeholder="hotel">
         <option disabled selected>Hotel aussuchen</option>
-        <option id="Muster Hotel" value="">Muster Hotel</option>
+           {% for hn in hotelnamedata %}
+          <option id="hn" value="{{hn}}">{{hn}}</option>
+           {% endfor %}
    </select>
-    <input class="btn" type="submit" value="ausw&auml;hlen">
     </form>
 </div>
+<br>
 <div>
     <form method="POST"><h3 align="center">Neue Buchung erfassen</h3>
 <div class="form-group">

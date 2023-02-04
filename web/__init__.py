@@ -7,11 +7,6 @@ from os import path
 # Initialize flask and create web app, register secret key and dependencies
 db = SQLAlchemy()
 DB_NAME = "database.db"
-DB_PATH = 'sqlite:////Users/anonx/PycharmProjects/buchungssystem/instance/database.db/'
-
-#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-#db_path = os.path.join(BASE_DIR, "database.db")
-#with sqlite3.connect(db_path) as db:
 
 def create_app():
     app = Flask(__name__)

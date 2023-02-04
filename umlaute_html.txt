@@ -1,7 +1,0 @@
-Ersetzen Sie das Zeichen ä durch die Zeichenfolge &auml;
-Ersetzen Sie das Zeichen Ä durch die Zeichenfolge &Auml;
-Ersetzen Sie das Zeichen ö durch die Zeichenfolge &ouml;
-Ersetzen Sie das Zeichen Ö durch die Zeichenfolge &Ouml;
-Ersetzen Sie das Zeichen ü durch die Zeichenfolge &uuml;
-Ersetzen Sie das Zeichen Ü durch die Zeichenfolge &Uuml;
-Ersetzen Sie das Zeichen ß durch die Zeichenfolge &szlig;
